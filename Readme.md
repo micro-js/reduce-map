@@ -6,14 +6,19 @@
 [![NPM version][npm-image]][npm-url]
 [![Code style][standard-image]][standard-url]
 
-Generates a reducing function that parameterizes a map iterator using the 2nd parameter to reduce. That is complicated to state, but simple if you see the implementation:
+Generates a reducing function that maps a reducer over the entities in a container (usually an object or array). That is complicated to state, but simple if you see the implementation:
 
 ```javascript
 function reduceMap (fn) {
   return function (state, value) {
-    return map(fn(value, state), state)
+    return map(iter, state)
+
+    function iter (item, key) {
+      return fn(item, value, key)
+    }
   }
 }
+
 ```
 
 ## Installation
@@ -27,7 +32,7 @@ var reduceMap = require('@micro-js/reduce-map')
 
 combineActions({
   todos: handleActions({
-    [SET_ALL_COMPLETED]: reduceMap(({completed}) => todo => ({...todo, completed}))
+    [SET_ALL_COMPLETED]: reduceMap((todo, {completed}) => ({...todo, completed}))
   })
 })
 ```
@@ -36,9 +41,9 @@ combineActions({
 
 ### reduceMap(fn)
 
-- `fn` - A function that accepts the (flipped) arguments to your reducer so, `(value, state)`, and returns a function to be mapped over `state`.
+- `fn` - A function that accepts `(item, value, key)` and produces a new `item` based on `value`.
 
-**Returns:** A reducing function that maps `fn(value, state)` over `state`. So to summarize: `map(fn(value, state), state)`.
+**Returns:** A reducing function that maps your reducer `fn`, over `state` to produce a new container of type `state` from each of its elements, and the value passed to reduce.
 
 ## License
 

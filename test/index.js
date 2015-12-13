@@ -14,8 +14,6 @@ test('should work', function (t) {
   t.end()
 })
 
-function addN (n) {
-  return function (m) {
-    return m + n
-  }
+function addN (m, n) {
+  return m + n
 }
