@@ -2,7 +2,7 @@
   "name": "@f/reduce-map",
   "description": "Generates a reducing function that parameterizes a map iterator using the 2nd parameter to reduce.",
   "repository": "git://github.com/micro-js/reduce-map.git",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
