@@ -23,12 +23,12 @@ function reduceMap (fn) {
 
 ## Installation
 
-    $ npm install @micro-js/reduce-map
+    $ npm install @f/reduce-map
 
 ## Usage
 
 ```js
-var reduceMap = require('@micro-js/reduce-map')
+var reduceMap = require('@f/reduce-map')
 
 combineActions({
   todos: handleActions({
@@ -55,5 +55,5 @@ MIT
 [git-url]: https://github.com/micro-js/reduce-map
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat
 [standard-url]: https://github.com/feross/standard
-[npm-image]: https://img.shields.io/npm/v/@micro-js/reduce-map.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/@micro-js/reduce-map
+[npm-image]: https://img.shields.io/npm/v/@f/reduce-map.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@f/reduce-map
